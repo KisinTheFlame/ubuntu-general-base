@@ -5,7 +5,7 @@ RUN apt install -y curl net-tools iputils-ping
 RUN apt install -y vim sudo
 RUN apt install -y openssh-client openssh-server
 RUN apt install -y htop screen
-RUN echo "root:kisintheflame" | chpasswd \
+RUN echo "root:moineau" | chpasswd \
     && useradd -s /bin/bash kisin \
     && echo "kisin:kisintheflame" | chpasswd \
     && mkdir /home/kisin \
