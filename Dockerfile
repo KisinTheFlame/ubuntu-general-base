@@ -15,7 +15,6 @@ RUN echo "root:kisintheflame" | chpasswd \
     && mkdir /home/kisin \
     && chown kisin /home/kisin \
     && chmod u+rwx /home/kisin
-RUN mkdir /run/sshd
 RUN mkdir /etc/kinit.d \
     && echo "service ssh start" > /etc/kinit.d/ssh.sh \
     && echo 'for file in `ls /etc/kinit.d`' > /etc/kinit.sh \
