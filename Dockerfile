@@ -1,7 +1,10 @@
 FROM ubuntu:20.04
 COPY sources.list /etc/apt/
 RUN apt update
-RUN apt install -y vim curl net-tools openssh-client openssh-server sudo
+RUN apt install -y curl net-tools iputils-ping
+RUN apt install -y vim sudo
+RUN apt install -y openssh-client openssh-server
+RUN apt install -y htop screen
 RUN echo "root:kisintheflame" | chpasswd \
     && useradd -s /bin/bash kisin \
     && echo "kisin:kisintheflame" | chpasswd \
