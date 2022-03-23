@@ -56,17 +56,15 @@ then
     build $REPO $NEW_VERSION
     cat ./build/information | awk -v newVersion=$NEW_VERSION '{if($1=="version") {print $1,newVersion} else {print $1,$2}}' > ./build/temp
     mv ./build/temp ./build/information
+elif [[ $1 == "push" ]]
+then
+    git add .
+    if [[ -z $2 ]]
+    then
+        git commit -m "update"
+    else
+        git commit -m "$2"
+    fi
+    git push origin master
+    docker push $REPO:$CURRENT_VERSION
 fi
-
-# OLD_VERSION=$1
-# NEW_VERSION=$2
-# if [ -z $NEW_VERSION ]
-# then
-#     NEW_VERSION=$1
-# fi
-
-# echo "Old Version: $OLD_VERSION"
-# echo "New Version: $NEW_VERSION"
-
-# clean $REPO $OLD_VERSION
-# build $REPO $NEW_VERSION
