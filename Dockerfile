@@ -10,7 +10,8 @@ RUN echo "root:kisintheflame" | chpasswd \
     && echo "kisin:kisintheflame" | chpasswd \
     && mkdir /home/kisin \
     && chown kisin /home/kisin \
-    && chmod u+rwx /home/kisin
+    && chmod u+rwx /home/kisin \
+    && echo "kisin ALL=(ALL:ALL) ALL" > /etc/sudoers.d/kisin
 RUN mkdir /etc/kinit.d \
     && mkdir /etc/kinit.d/sh \
     && touch /etc/kinit.d/hosts
