@@ -7,5 +7,5 @@ elif [[ $1 == "list" ]]
 then
     ls /etc/ksource.d
 else
-    cat /etc/ksource.d/$1 > /etc/apt/source.list
+    cat /etc/ksource.d/$1 > /etc/apt/sources.list
 fi
